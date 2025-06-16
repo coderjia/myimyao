@@ -25,8 +25,8 @@ COPY . /var/www/myimyao
 
 # 设置权限
 RUN chown -R www-data:www-data /var/www/myimyao \
-    && chmod -R 755 /var/www/myimyao/storage \
-    && chmod -R 755 /var/www/myimyao/bootstrap/cache
+    && chmod -R 775 /var/www/myimyao/storage \
+    && chmod -R 775 /var/www/myimyao/bootstrap/cache
 
 # 安装PHP依赖
 RUN composer install --no-dev --optimize-autoloader
