@@ -4,6 +4,10 @@ FROM php:8.2-cli
 # 设置工作目录
 WORKDIR /var/www/myimyao
 
+# 配置阿里云Ubuntu源以加速包下载
+RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list && \
+    sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
+
 # 安装系统依赖
 RUN apt-get update && apt-get install -y \
     git \
