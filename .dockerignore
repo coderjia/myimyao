@@ -46,8 +46,37 @@ phpunit.xml
 .DS_Store
 Thumbs.db
 
-# Docker相关
-Dockerfile
+# Docker相关文件（保留用于多平台构建）
+# Dockerfile - 保留，多平台构建需要
+# docker-compose*.yml - 保留，可能需要在容器内使用
+
+# 多平台构建脚本（不需要在镜像中）
+build-multiplatform.sh
+build-multiplatform.bat
+
+# 文档文件（不需要在镜像中）
+README*.md
+LICENSE
+*.md
+
+# 多平台环境配置（不需要在镜像中）
+.env.multiplatform
+docker-compose.multiplatform.yml
+
+# 开发工具配置
+.editorconfig
+.styleci.yml
+.php_cs
+.php_cs.cache
+
+# 备份文件
+*.bak
+*.backup
+*.tmp
+
+# 平台特定文件
+.wslconfig
+.dockerconfigjson
 docker-compose.yml
 .dockerignore
 
