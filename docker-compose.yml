@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # Laravel应用服务
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: myimyao_app
+    restart: unless-stopped
+    working_dir: /var/www/myimyao
+    ports:
+      - "8000:8000"  # 映射到宿主机8000端口，供Nginx反向代理使用
+    volumes:
+      - ./:/var/www/myimyao
+      - ./storage:/var/www/myimyao/storage
+    environment:
+      - DB_HOST=host.docker.internal  # 连接宿主机MySQL
+      - DB_PORT=3306
+      - DB_DATABASE=myimyao
+      - DB_USERNAME=root
+      - DB_PASSWORD=your_mysql_password  # 请替换为实际密码
+      - REDIS_HOST=host.docker.internal  # 如果需要Redis
+    extra_hosts:
+      - "host.docker.internal:host-gateway"  # 允许容器访问宿主机服务
+    networks:
+      - myimyao_network
+
+networks:
+  myimyao_network:
+    driver: bridge

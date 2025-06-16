@@ -1,0 +1,54 @@
+# Git相关
+.git
+.gitignore
+.gitattributes
+
+# 依赖目录
+node_modules
+vendor
+
+# 环境文件
+.env
+.env.*
+
+# 日志文件
+storage/logs/*
+!storage/logs/.gitignore
+
+# 缓存文件
+storage/framework/cache/*
+!storage/framework/cache/.gitignore
+storage/framework/sessions/*
+!storage/framework/sessions/.gitignore
+storage/framework/views/*
+!storage/framework/views/.gitignore
+bootstrap/cache/*
+!bootstrap/cache/.gitignore
+
+# 测试相关
+tests
+phpunit.xml
+.phpunit.result.cache
+
+# IDE相关
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# Docker相关
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# 文档
+README.md
+
+# NPM/Yarn
+package-lock.json
+yarn.lock
